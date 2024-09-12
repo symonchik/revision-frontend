@@ -3,6 +3,7 @@ from typing import Dict, Optional
 
 import reflex as rx
 import requests
+from twitter.config import SUPABASE_URL
 from twitter.db_model import User
 
 class State(rx.State):
@@ -26,7 +27,7 @@ class State(rx.State):
             return rx.redirect("/login")
         
     def add_marketplace(self, form_data: dict):
-        host = "http://localhost:8004"
+        host = SUPABASE_URL
         method = "/mp/add_ozon"
         headers = {
             "accept": "application/json",
@@ -48,7 +49,7 @@ class State(rx.State):
     def get_product_list(self):
         self.update_product_list()
         """returns product list"""
-        host = "http://localhost:8004"
+        host = SUPABASE_URL
         method = "/products/all"
         headers = {
             "accept": "application/json",
@@ -75,7 +76,7 @@ class State(rx.State):
 
     def update_product_list(self):
         "make data reload from marketplace"
-        host = "http://localhost:8004"
+        host = SUPABASE_URL
         method = "/products/update_list"
         headers = {
             "accept": "application/json",
@@ -89,8 +90,9 @@ class State(rx.State):
     @rx.var
     def logged_in(self):
         """Check if a user is logged in."""
+        print("chesk log in", self.user)
         if type(self.user) is type((1, 2)):
             return self.user[0] is not None
-        return self.user is not None
+        return True #self.user is not None # Temporary
         
         

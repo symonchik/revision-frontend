@@ -5,6 +5,8 @@ from sqlmodel import select
 
 import requests
 
+from twitter.config import SUPABASE_URL
+
 from .base import State, User
 
 
@@ -20,7 +22,7 @@ class AuthState(State):
         if self.password != self.confirm_password:
             return rx.window_alert("Passwords do not match.")
         
-        db_url = "http://localhost:8004" # need change later!
+        db_url = SUPABASE_URL
 
         method = "/users"
         headres = {
@@ -73,7 +75,8 @@ class AuthState(State):
 
     def login(self):
         """Log in a user."""
-        db_url = "http://localhost:8004" # need change later!
+        # db_url = "http://localhost:8004" # need change later!
+        db_url = SUPABASE_URL
         method = "/token"
         headres = {
             'Content-Type': 'application/x-www-form-urlencoded',
