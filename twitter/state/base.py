@@ -93,6 +93,6 @@ class State(rx.State):
         print("chesk log in", self.user)
         if type(self.user) is type((1, 2)):
             return self.user[0] is not None
-        return True #self.user is not None # Temporary
+        return self.user is not None # Temporary
         
         

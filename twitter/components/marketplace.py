@@ -137,7 +137,7 @@ def add_marketplace_button() -> rx.Component:
                         ),
                         rx.form.submit(
                             rx.dialog.close(
-                                rx.button("Submit Customer"),
+                                rx.button("Submit Marketplace"),
                             ),
                             as_child=True,
                         ),

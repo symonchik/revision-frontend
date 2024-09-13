@@ -7,8 +7,8 @@ from .state.base import State
 
 
 app = rx.App(
-    theme=theme(appearance="light", has_background=True, radius="large", accent_color="teal"),
+    theme=theme(appearance="light", has_background=True, radius="large", accent_color="blue"),
 )
-app.add_page(login)
-app.add_page(signup)
+app.add_page(login, title="Revision")
+app.add_page(signup, title="Revision") 
 app.add_page(home, route="/", on_load=State.check_login(), title="Revision")

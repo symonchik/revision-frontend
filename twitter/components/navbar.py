@@ -136,7 +136,7 @@ def update_user_button() -> rx.Component:
                         ),
                         rx.form.submit(
                             rx.dialog.close(
-                                rx.button("Submit Customer"),
+                                rx.button("Submit User"),
                             ),
                             as_child=True,
                         ),
